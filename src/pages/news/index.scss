@@ -2,3 +2,12 @@
   height: 110px;
   background-color: pink;
 }
+
+.news {
+  .cardstyle {
+    margin-bottom: 10px;
+    .card:hover {
+      cursor: pointer;
+    }
+  }
+}

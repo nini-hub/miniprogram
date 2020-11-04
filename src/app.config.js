@@ -1,7 +1,8 @@
 export default {
   pages: [
     'pages/index/index',
-    'pages/news/index'
+    'pages/news/index',
+    'pages/newsDetail/index',
   ],
   window: {
     backgroundTextStyle: 'light',
