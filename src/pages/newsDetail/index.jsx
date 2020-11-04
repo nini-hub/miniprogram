@@ -25,7 +25,6 @@ export default class news extends Component {
         this.setState({
           data:res.data.data
         })
-
       }
       )
   }
@@ -63,7 +62,7 @@ export default class news extends Component {
             <View className='at-article__p'>
               {id && id.description}
             </View>
-            {/* <View className='at-article__p'>
+            {/* <View ew className='at-article__p'>
               这是文本段落。这是文本段落。
             </View> */}
             <Image 

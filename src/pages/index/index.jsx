@@ -54,7 +54,6 @@ export default class Index extends Component {
             current={this.state.current}
           />
         </View>
-
         <View className='temp'></View>
       </View>
     )
