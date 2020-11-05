@@ -48,8 +48,8 @@ export default class news extends Component {
         {data.list && data.list.map(element => (
           <View key={element.id} onClick={()=>this.gotoDetail(element.id)}>
             <AtCard
-              note={element.datatime}
-              extra={element.name}
+              note={element.date}
+              extra={element.id+1}
               title={element.title}
               thumb={element.img}
               className='card'
