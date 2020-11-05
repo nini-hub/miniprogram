@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import Taro ,{getCurrentInstance } from '@tarojs/taro'
 import { View,Image} from '@tarojs/components'
-import {AtActivityIndicator,AtTabBar} from 'taro-ui'
+import {AtActivityIndicator,AtTabBar,AtPagination} from 'taro-ui'
 import './index.scss'
 
 
@@ -45,6 +45,15 @@ export default class news extends Component {
     })
   }
 
+  onPageChange = (e) =>{
+    const {current}=e;
+    // type next   current 2
+    // type prev current 1
+    Taro.navigateTo({
+      url:  `../newsDetail/index?id=${current-1}`
+    })
+  }
+
   render () {
     const {data:{id}}=this.state
     return (
@@ -71,7 +80,14 @@ export default class news extends Component {
               mode='widthFix' />
           </View>
         </View>
-        <AtActivityIndicator mode='center' isOpened={!id}><View className='temp'></View></AtActivityIndicator>
+        <AtPagination 
+          total={18} 
+          pageSize={1}
+          current={Number(getCurrentInstance().router.params.id)+1}
+          onPageChange={this.onPageChange}
+        ></AtPagination>
+        <AtActivityIndicator mode='center' isOpened={!id}></AtActivityIndicator>
+        <View className='temp'></View>
         <AtTabBar
             fixed
             tabList={[
