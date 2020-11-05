@@ -1,14 +1,13 @@
 import React,{Component} from 'react'
-import Taro  from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View} from '@tarojs/components'
-import { AtTabBar   ,AtCard,AtActivityIndicator, AtDivider} from 'taro-ui'
+import { AtCard,AtActivityIndicator} from 'taro-ui'
 import './index.scss'
 
 
 export default class news extends Component {
 
   state = {
-    current: 1,
     data:{}
   }
 
@@ -36,12 +35,6 @@ export default class news extends Component {
 
   componentDidHide () { }
 
-  handleClick (value) {
-    this.setState({
-      current: value
-    })
-  }
-
   gotoDetail =(id)=>{
     console.log(id);
     Taro.navigateTo({
@@ -66,18 +59,6 @@ export default class news extends Component {
           </View>
             ))}
           <AtActivityIndicator mode='center' isOpened={!data.list}></AtActivityIndicator>
-          <View className='temp'></View>
-          <AtTabBar
-            fixed
-            tabList={[
-              { title: '首页', iconType: 'home'},
-              { title: '美食学堂', iconType: 'sketch' },
-              { title: '联系我们', iconType: 'phone' }
-            ]}
-            onClick={this.handleClick.bind(this)}
-            current={this.state.current}
-          />
-
       </View>
     )
   }

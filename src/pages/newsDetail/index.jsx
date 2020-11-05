@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import Taro ,{getCurrentInstance } from '@tarojs/taro'
 import { View,Image} from '@tarojs/components'
-import {AtActivityIndicator,AtTabBar,AtPagination} from 'taro-ui'
+import {AtActivityIndicator,AtPagination} from 'taro-ui'
 import './index.scss'
 
 
@@ -39,12 +39,6 @@ export default class news extends Component {
 
   componentDidHide () { }
 
-  handleClick (value) {
-    this.setState({
-      current: value
-    })
-  }
-
   onPageChange = (e) =>{
     const {current}=e;
     // type next   current 2
@@ -81,23 +75,13 @@ export default class news extends Component {
           </View>
         </View>
         <AtPagination 
+          icon
           total={18} 
           pageSize={1}
           current={Number(getCurrentInstance().router.params.id)+1}
           onPageChange={this.onPageChange}
         ></AtPagination>
         <AtActivityIndicator mode='center' isOpened={!id}></AtActivityIndicator>
-        <View className='temp'></View>
-        <AtTabBar
-            fixed
-            tabList={[
-              { title: '首页', iconType: 'home'},
-              { title: '美食学堂', iconType: 'sketch' },
-              { title: '联系我们', iconType: 'phone' }
-            ]}
-            onClick={this.handleClick.bind(this)}
-            current={this.state.current}
-          />
       </View>
     )
   }
