@@ -65,7 +65,8 @@ export default class news extends Component {
             </AtCard>
           </View>
             ))}
-          <AtActivityIndicator mode='center' isOpened={!data.list}><View className='temp'></View></AtActivityIndicator>
+          <AtActivityIndicator mode='center' isOpened={!data.list}></AtActivityIndicator>
+          <View className='temp'></View>
           <AtTabBar
             fixed
             tabList={[
